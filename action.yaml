@@ -1,0 +1,6 @@
+name: 'Digitally Induced Test IHP App'
+description: 'Run tests for IHP applications'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+
