@@ -1,5 +1,10 @@
 name: 'Digitally Induced Test IHP App'
 description: 'Run tests for IHP applications'
+inputs:
+  test:
+    description: 'Script that contains the actual invocation of the test'
+    required: true
+    default: 'test.sh'
 runs:
   using: 'docker'
   image: 'Dockerfile'
