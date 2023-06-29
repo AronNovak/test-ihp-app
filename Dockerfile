@@ -20,7 +20,7 @@ RUN cachix use digitallyinduced && \
 # Install devenv.sh
 RUN echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
 
-RUN nix profile remove /nix/store/mh1c3p23xby3chc3q0c0g78fa1nn65yw-bash-5.2-p15
+RUN nix-env --uninstall bash
 RUN nix profile install github:cachix/devenv/latest
 
 RUN nix-shell -p direnv --run "direnv hook bash > ~/.bashrc"
