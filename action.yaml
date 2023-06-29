@@ -1,5 +1,9 @@
 name: 'Digitally Induced Test IHP App'
 description: 'Run tests for IHP applications'
+inputs:
+  test:
+    description: 'Optional script path to be invoked before the actual test execution'
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
