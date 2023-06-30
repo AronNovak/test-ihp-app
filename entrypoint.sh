@@ -2,6 +2,11 @@
 
 INIT_SCRIPT="$1"
 
+echo "use nix" >> .envrc
+direnv allow
+
+nix-shell default.nix --run "devenv init"
+
 # Start the project in the background.
 nix-shell default.nix --run "devenv up &"
 

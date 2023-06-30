@@ -8,6 +8,7 @@ RUN nix-channel --update && \
 # Set up the Nix path
 RUN nix-env -iA nixpkgs.curl && \
     nix-env -iA nixpkgs.unzip && \
+    nix-env -iA nixpkgs.direnv && \
     nix-env -iA nixpkgs.gnumake && \
     nix-env -iA nixpkgs.bash && \
     mkdir -p ~/.nix-defexpr/channels/nixpkgs && \
@@ -22,8 +23,6 @@ RUN echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
 
 RUN nix-env --uninstall bash
 RUN nix profile install github:cachix/devenv/latest
-
-RUN nix-shell -p direnv --run "direnv hook bash > ~/.bashrc"
 
 # Copy the entrypoint script
 COPY entrypoint.sh /entrypoint.sh
